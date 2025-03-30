@@ -13,5 +13,7 @@
     <include file="$(find nav_pack)/launch/nav_load_map.launch" />
     <!-- 启动AMCL节点 -->
     <include file="$(find nav_pack)/launch/nav_amcl.launch" />
+    <!-- 运行move_base节点 -->
+    <include file="$(find nav_pack)/launch/nav_path.launch" />
 
 </launch>
