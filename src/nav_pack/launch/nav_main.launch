@@ -8,9 +8,9 @@
     <!-- 引入机器人模型及相关环境 -->
     <include file="$(find nav_pack)/launch/nav_show_car.launch" />
     <!-- 引入gmapping参数，slam建图 -->
-    <!-- <include file="$(find nav_pack)/launch/nav_params_slam.launch" /> -->
+    <include file="$(find nav_pack)/launch/nav_params_slam.launch" />
     <!-- 运行地图服务器，并且加载设置的地图-->
-    <include file="$(find nav_pack)/launch/nav_load_map.launch" />
+    <!-- <include file="$(find nav_pack)/launch/nav_load_map.launch" /> -->
     <!-- 启动AMCL节点 -->
     <include file="$(find nav_pack)/launch/nav_amcl.launch" />
     <!-- 运行move_base节点 -->
