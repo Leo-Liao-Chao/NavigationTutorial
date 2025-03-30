@@ -6,4 +6,9 @@
     <xacro:include filename="car_base.urdf.xacro" />
     <xacro:include filename="car_camera.urdf.xacro" />
     <xacro:include filename="car_laser.urdf.xacro" />
+    <!-- 在gazebo里面显示 -->
+    <xacro:include filename="gazebo/laser.urdf.xacro" />
+    <xacro:include filename="gazebo/camera.urdf.xacro" />
+    <xacro:include filename="gazebo/kinect.urdf.xacro" />
+    <xacro:include filename="gazebo/move.urdf.xacro" />
 </robot>

@@ -1,0 +1,14 @@
+<launch>
+    <!-- 启动机器人状态和关节状态发布节点 -->
+    <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+    <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
+    <!-- 启动 rivz -->
+    <node pkg="rviz" type="rviz" name="rviz" />
+
+    <!-- 引入机器人模型及相关环境 -->
+    <include file="$(find nav_pack)/launch/nav_show_car.launch" />
+    <!-- 引入gmapping参数，slam建图 -->
+    <include file="$(find nav_pack)/launch/nav_params_slam.launch" />
+  
+</launch>
+
