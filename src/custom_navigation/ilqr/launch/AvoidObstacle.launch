@@ -1,0 +1,4 @@
+<launch>
+    <node name="ilqr_node" pkg="ilqr" type="ilqr_node" output="screen" />
+    <node name="ilqr_vehicle_pub" pkg="ilqr" type="ilqr_vehicle_pub" output="screen" />
+</launch>

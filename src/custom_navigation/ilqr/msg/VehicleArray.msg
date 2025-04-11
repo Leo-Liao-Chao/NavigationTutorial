@@ -1,0 +1,2 @@
+# VehicleArray.msg
+Vehicle[] vehicles
