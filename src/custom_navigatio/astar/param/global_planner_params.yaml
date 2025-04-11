@@ -1,0 +1,12 @@
+# global_planner_params.yaml
+AStarPlannerROS:
+  allow_unknown: true
+  # lethal_cost_threshold: 100
+  # use_quadratic: true
+  # use_dijkstra: false
+  # use_heuristic: true
+  # use_grid_path: false
+  # publish_potential: false
+  # publish_visited: false
+  # publish_cost: false
+  # publish_final_path: true
