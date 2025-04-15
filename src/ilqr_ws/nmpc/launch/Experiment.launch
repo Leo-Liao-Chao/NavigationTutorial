@@ -1,0 +1,15 @@
+<launch>
+
+    <param name="vehicle_sigma_x" value="0.08" />
+    <param name="vehicle_sigma_y" value="0.08" />
+    <param name="vehicle_sigma_theta" value="0.035" />
+
+    <param name="obstacle_sigma_x" value="0.08" />
+    <param name="obstacle_sigma_y" value="0.08" />
+    <param name="obstacle_sigma_theta" value="0.035" />
+
+    <param name="safe_length" value="1.1" />
+    <param name="safe_width" value="0.9" /> 
+
+    <node name="main_node" pkg="nmpc" type="main.py" output="screen" />
+</launch>

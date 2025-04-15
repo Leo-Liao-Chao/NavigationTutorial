@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sysu/liaochao/workspace/NavigationTutorial/test/test_cu_mp/main.cpp
+omp.h
+-
+stdio.h
+-
+myutil.h
+/home/sysu/liaochao/workspace/NavigationTutorial/test/test_cu_mp/myutil.h
+
+/home/sysu/liaochao/workspace/NavigationTutorial/test/test_cu_mp/myutil.h
+

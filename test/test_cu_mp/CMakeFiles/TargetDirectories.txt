@@ -1,0 +1,3 @@
+/home/sysu/liaochao/workspace/NavigationTutorial/test/test_cu_mp/CMakeFiles/rebuild_cache.dir
+/home/sysu/liaochao/workspace/NavigationTutorial/test/test_cu_mp/CMakeFiles/edit_cache.dir
+/home/sysu/liaochao/workspace/NavigationTutorial/test/test_cu_mp/CMakeFiles/cuda_openmp_prj.dir

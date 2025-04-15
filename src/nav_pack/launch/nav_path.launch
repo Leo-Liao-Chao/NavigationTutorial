@@ -23,10 +23,12 @@
         <rosparam file="$(find custom_global_planner)/param/global_planner_params.yaml" command="load"/>
 
         <!-- 指定局部路径规划器 -->
-        <param name="base_local_planner" type="string" value="custom_local_planner/DWAPlanner" />
+        <!-- <param name="base_local_planner" type="string" value="custom_local_planner/DWAPlanner" /> -->
 
         <!-- 加载局部路径规划器的参数文件 -->
-        <rosparam file="$(find custom_local_planner)/param/local_planner_params.yaml" command="load" />
+        <!-- <rosparam file="$(find custom_local_planner)/param/local_planner_params.yaml" command="load" /> -->
+        <param name="base_local_planner" type="string" value="custom_local_planner/CILQRPlanner" /> 
+        <rosparam file="$(find cilqr)/param/local_planner_params.yaml" command="load" />
     </node>
 
 </launch>

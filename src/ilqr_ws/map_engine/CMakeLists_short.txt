@@ -1,0 +1,77 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(map_engine)
+enable_language(CUDA)#激活CUDA语言支持，使用第一个写法时要进行注释
+
+## Compile as C++11, supported in ROS Kinetic and newer
+# add_compile_options(-std=c++11)
+add_compile_options(-fopenmp)
+
+#set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "release")
+
+#设置语言标准
+# set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CUDA_STANDARD 11)
+
+find_package( CUDA REQUIRED )
+# find_package(tf2_geometry_msgs REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  nav_msgs
+  roscpp
+  rospy
+  std_msgs
+  cv_bridge
+  dynamic_reconfigure
+  grid_map_core
+  grid_map_ros
+  grid_map_filters
+  grid_map_loader
+  grid_map_msgs
+  grid_map_rviz_plugin
+  grid_map_visualization
+  message_generation
+  message_runtime
+)
+
+#添加项目自身的库和依赖
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)#设置编译后的程序存放位置
+aux_source_directory(src SRC_LIST)#添加src目录下的所有源文件
+include_directories(include)#添加头文件路径
+
+add_executable(local_costmap src/local_costmap.cpp  ${SRC_LIST})
+# add_executable(local_costmap src/arbitrary_transformation.cu)
+add_dependencies(local_costmap ${PROJECT_NAME}_gencfg)
+target_link_libraries(local_costmap ${catkin_LIBRARIES} -fopenmp)
+# target_link_libraries(local_costmap tf2_geometry_msgs)
+
+set(CUB_DIR /usr/local/cuda-11.4/targets/x86_64-linux/include/cub/cmake)
+set(Thrust_DIR /usr/local/cuda-11.4/include/thrust/cmake)
+find_package(Thrust REQUIRED CONFIG)
+thrust_create_target(Thrust)
+target_link_libraries(local_costmap Thrust)
+
+add_message_files(
+  FILES
+  map_param.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
+generate_dynamic_reconfigure_options(
+  cfg/map_engine.cfg
+)
+
+catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES map_engine
+#  CATKIN_DEPENDS nav_msgs roscpp rospy std_msgs grid_map
+#  DEPENDS system_lib
+)
+
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+)
